@@ -1,17 +1,22 @@
-.galeri__image-jumbotron {
-  background: url("/images/galeri-01.png") no-repeat center center;
-  height: 100vh;
-  width: 100%;
+.galeri__image-container{
+  padding: 0;
   margin: 0;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  height: auto;
+  width: 100%;
 }
+
+// .galeri__image-banner {
+//   // -webkit-background-size: cover;
+//   // -moz-background-size: cover;
+//   // -o-background-size: cover;
+//   // background-size: cover;
+// }
+
 
 .galeri__custom-jumbotron {
   background-color: black;
   margin: 0;
+  text-align: center;
 }
 
 .galeri__custom-container {
@@ -27,8 +32,13 @@
 
 .galeri__photo-line {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 0 10rem;
+  flex-wrap: wrap;
+
+  @include respon(phone) {
+    padding: 0;
+  }
 }
 
 .galeri__photo-image {
@@ -38,9 +48,62 @@
   border-radius: 1rem;
   overflow: hidden;
   cursor: pointer;
+
+  @include respon(phone){
+    margin-bottom: 2rem;
+  }
 }
 
 .galeri__image{
   width: auto;
   height: 100%;
 }
+
+.galeri__custom-modal-content {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.galeri__custom-modal-dialog {
+  @include absolute-center;
+  @include respon(phone){
+    width: 90vw;
+    margin: auto;
+  }
+}
+
+.galeri__modal-image {
+  width: 100%;
+}
+
+
+// UNTUK CENTERING 
+// .modal.show .modal-dialog {
+//   -webkit-transform: none;
+//   transform: none;
+// }
+
+// .modal.fade .modal-dialog {
+//   transition: unset;
+//   transition: unset;
+//   transition: unset;
+//   -webkit-transform: unset;
+//   transform: unset;
+// }
+
+// .modal.fade .modal-dialog {
+//   transition: unset;
+//       transition-property: unset;
+//       transition-duration: unset;
+//       transition-timing-function: unset;
+//       transition-delay: unset;
+//   transition: transform unset;
+//       transition-property: unset;
+//       transition-duration: unset;
+//       transition-timing-function: unset;
+//       transition-delay: unset;
+//   transition: unset;
+//   -webkit-transform: unset;
+//       transform: unset;
+//   transform: unset;
+// }

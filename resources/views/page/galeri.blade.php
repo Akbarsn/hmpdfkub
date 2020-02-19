@@ -2,6 +2,7 @@
 
 @section('body')
     {{-- Isi sini gan --}}
+    <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
     <section class="galeri">
         <div class="jumbotron jumbotron-fluid galeri__image-container">

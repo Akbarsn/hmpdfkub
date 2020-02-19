@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "Cocogoose";
+    src: url("../font/Cocogoose\ Pro\ Light-trial.ttf");
+}
+
+:root {
+    /* Color */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-cream: #f0ebe0;
+    --color-grey: #505668;
+    --color-red: #c15851;
+    --color-green: #8bbf9f;
+    --color-yellow: #f6c570;
+
+    /* Font */
+    --font-head: "Bebas Neue", cursive;
+    --font-head-size: 72px;
+    --font-subhead: "Cocogoose";
+    --font-paragraph-size: 48px;
+    --font-paragraph: "Montserrat", sans-serif;
+    --font-paragraph-size: 18px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}

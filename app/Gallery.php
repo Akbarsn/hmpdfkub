@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gallery extends Model
 {
-    protected $table = 'galery';
+    protected $table = 'gallery';
     protected $primarykey = 'id';
 }

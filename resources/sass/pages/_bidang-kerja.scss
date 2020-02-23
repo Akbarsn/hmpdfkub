@@ -1,0 +1,68 @@
+.bidang-kerja{
+    background-color: var(--color-black);
+    padding:  6.25rem 0 0 0;
+
+    &__header {
+        text-transform: uppercase;
+        font-family: var(--font-head);
+        font-size: var(--font-head-size);
+        color: var(--color-red);
+    }
+
+    &__container {
+        margin: 6rem 0 0 0;
+    }
+    &__bidang-info{
+        margin: 0 0 2rem 0;
+    }
+
+    &__nama-bidang{
+        font-family: var(--font-subhead);
+        font-size: var(--font-subhead-size);
+        color: var(--color-red);
+        font-style: italic;
+    }
+
+    &__desc-container {
+        background-color: var(--color-yellow);
+        padding: 1rem 2rem;
+        text-align: justify;
+        border-radius: 1.25rem;
+        font-family: var(--font-paragraph);
+        font-size: var(--font-paragraph-size);
+        margin: 2rem 0 0;
+    }
+
+    &__desc {
+        margin-bottom: unset;
+    }
+
+    &__pengurus {
+        padding: 4rem 0 10rem 0;
+    }
+
+    &__pengurus-foto-container{
+        width: 20%;
+        height: 40vh;
+        overflow: hidden;
+        background-size: cover;
+        background-position: 57% 20%;
+
+        &--1{
+            background-image: url('/image/bidang-kerja/liani amelia.JPG');
+        }
+        &--2{
+            background-image: url('/image/bidang-kerja/dhiya.JPG');
+        }
+    }
+
+    &__proker-heading{
+        font-family: var(--font-subhead);
+        color: var(--color-red);
+        font-size: var(--font-subhead-size);
+
+        &--2 {
+            padding: 0 0 0 6rem;
+        }
+    }
+}

@@ -20,7 +20,6 @@
         font-family: var(--font-subhead);
         font-size: var(--font-subhead-size);
         color: var(--color-red);
-        font-style: italic;
     }
 
     &__desc-container {
@@ -35,6 +34,7 @@
 
     &__desc {
         margin-bottom: unset;
+        color: var(--color-black);
     }
 
     &__pengurus {
@@ -62,7 +62,43 @@
         font-size: var(--font-subhead-size);
 
         &--2 {
-            padding: 0 0 0 6rem;
+            padding: 0 0 3rem 6rem;
         }
+    }
+
+    &__proker-carousel-container {
+        background-color: var(--color-black);
+        border-radius: 1rem;
+        overflow: hidden;
+        width: 100vw;
+        margin: 0 auto 8rem auto;
+    
+    }
+
+    &__carousel-inner {
+        width: 80%;
+        min-height: 70vh;
+        margin: auto;
+        background-color: var(--color-yellow);
+        border-radius: 1rem;
+    }
+
+    &__proker-container{
+        font-family: var(--font-paragraph);
+        color: var(--color-black);
+        background-color: var(--color-yellow);
+        border-radius: 1rem;
+        padding: 2rem 3rem;
+    }
+    
+    &__proker-title{
+        font-family: var(--font-subhead);
+        font-size: var(--font-subhead-size);
+        margin: 0 0 2rem 0;
+    }
+    
+    &__proker-desc {
+        text-align: justify;
+        font-size: var(--font-paragraph-size);
     }
 }

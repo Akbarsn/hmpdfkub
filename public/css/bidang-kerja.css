@@ -17,71 +17,6 @@ VALUE PARAMETER:
 maka logic = $breakpoint / 16px = ${hasil}em
 URUTAN Menambah media query: base + typography -> layout & grid -> page layout -> component
 */
-.galeri__image-container {
-  padding: 0;
-  margin: 0;
-  height: auto;
-  width: 100%;
-  margin: 1.5625rem 0 0 0; }
-  @media only screen and (max-width: 37.5em) {
-    .galeri__image-container {
-      margin: 3.5rem 0 0 0; } }
-
-.galeri__custom-jumbotron {
-  background-color: black;
-  margin: 0;
-  text-align: center; }
-
-.galeri__custom-container {
-  background-color: black; }
-
-.galeri__photo-container {
-  padding: 1.25rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; }
-
-.galeri__photo-line {
-  display: flex;
-  justify-content: space-around;
-  padding: 0 0 6.25rem;
-  flex-wrap: wrap; }
-  @media only screen and (max-width: 37.5em) {
-    .galeri__photo-line {
-      padding: 0; } }
-
-.galeri__photo-image {
-  width: 18.75rem;
-  height: 18.75rem;
-  background-color: coral;
-  border-radius: 0.625rem;
-  overflow: hidden;
-  cursor: pointer; }
-  @media only screen and (max-width: 37.5em) {
-    .galeri__photo-image {
-      margin-bottom: 1.25rem; } }
-
-.galeri__image {
-  width: auto;
-  height: 100%; }
-
-.galeri__custom-modal-content {
-  border-radius: 0.625rem;
-  overflow: hidden; }
-
-.galeri__custom-modal-dialog {
-  transform: translate(-50%, -50%) !important;
-  top: 50%;
-  left: 50%;
-  position: absolute; }
-  @media only screen and (max-width: 37.5em) {
-    .galeri__custom-modal-dialog {
-      width: 90vw;
-      margin: auto; } }
-
-.galeri__modal-image {
-  width: 100%; }
-
 .bidang-kerja {
   background-color: var(--color-black);
   padding: 6.25rem 0 0 0; }
@@ -97,8 +32,7 @@ URUTAN Menambah media query: base + typography -> layout & grid -> page layout -
   .bidang-kerja__nama-bidang {
     font-family: var(--font-subhead);
     font-size: var(--font-subhead-size);
-    color: var(--color-red);
-    font-style: italic; }
+    color: var(--color-red); }
   .bidang-kerja__desc-container {
     background-color: var(--color-yellow);
     padding: 1rem 2rem;
@@ -108,7 +42,8 @@ URUTAN Menambah media query: base + typography -> layout & grid -> page layout -
     font-size: var(--font-paragraph-size);
     margin: 2rem 0 0; }
   .bidang-kerja__desc {
-    margin-bottom: unset; }
+    margin-bottom: unset;
+    color: var(--color-black); }
   .bidang-kerja__pengurus {
     padding: 4rem 0 10rem 0; }
   .bidang-kerja__pengurus-foto-container {
@@ -126,4 +61,29 @@ URUTAN Menambah media query: base + typography -> layout & grid -> page layout -
     color: var(--color-red);
     font-size: var(--font-subhead-size); }
     .bidang-kerja__proker-heading--2 {
-      padding: 0 0 0 6rem; }
+      padding: 0 0 3rem 6rem; }
+  .bidang-kerja__proker-carousel-container {
+    background-color: var(--color-black);
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 100vw;
+    margin: 0 auto 8rem auto; }
+  .bidang-kerja__carousel-inner {
+    width: 80%;
+    min-height: 70vh;
+    margin: auto;
+    background-color: var(--color-yellow);
+    border-radius: 1rem; }
+  .bidang-kerja__proker-container {
+    font-family: var(--font-paragraph);
+    color: var(--color-black);
+    background-color: var(--color-yellow);
+    border-radius: 1rem;
+    padding: 2rem 3rem; }
+  .bidang-kerja__proker-title {
+    font-family: var(--font-subhead);
+    font-size: var(--font-subhead-size);
+    margin: 0 0 2rem 0; }
+  .bidang-kerja__proker-desc {
+    text-align: justify;
+    font-size: var(--font-paragraph-size); }

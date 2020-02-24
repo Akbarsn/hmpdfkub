@@ -35,10 +35,10 @@
   </div>
   <div class="bidang-kerja__proker-carousel-container">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <ol class="carousel-indicators bidang-kerja__carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="bidang-kerja__carousel-indicators-list active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1" class="bidang-kerja__carousel-indicators-list"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2" class="bidang-kerja__carousel-indicators-list"></li>
       </ol>
       <div class="carousel-inner bidang-kerja__carousel-inner">
         <div class="carousel-item active">
@@ -85,11 +85,11 @@
         </div>
       </div>
       <a class="carousel-control-prev bidang-kerja__proker-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="carousel-control-prev-icon bidang-kerja__carousel-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
       <a class="carousel-control-next bidang-kerja__proker-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="carousel-control-next-icon bidang-kerja__carousel-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
     </div>

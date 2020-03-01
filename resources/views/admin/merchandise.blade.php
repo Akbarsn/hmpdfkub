@@ -28,46 +28,30 @@
                                 <th scope="col">Gambar</th>
                                 <th scope="col">Judul</th>
                                 <th scope="col">Harga</th>
-                                <th scope="col" class="center">Aksi</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
 
                         <tbody>
 
-                            <tr>
-                                <td>1</td>
-                                <td><img src="{{asset("images/topi.jpg")}}" class="img"></td>
-                                <td>Ganci</td>
-                                <td>Rp. 15.000</td>
-                                <td class="action-group">
-                                    <a href="" class="action delete"><i class="fas fa-times"></i></a>
-                                    <a href="" class="action edit"><i class="far fa-edit"></i></a>
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td>1</td>
-                                <td><img src="{{asset("images/topi.jpg")}}" class="img"></td>
-                                <td>Ganci</td>
-                                <td>Rp. 15.000</td>
-                                <td class="action-group">
-                                    <a href="" class="action delete"><i class="fas fa-times"></i></a>
-                                    <a href="" class="action edit"><i class="far fa-edit"></i></a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td><img src="{{asset("images/topi.jpg")}}" class="img"></td>
-                                <td>Ganci</td>
-                                <td>Rp. 15.000</td>
-                                <td class="action-group">
-                                    <a href="" class="action delete"><i class="fas fa-times"></i></a>
-                                    <a href="" class="action edit"><i class="far fa-edit"></i></a>
-                                </td>
-                            </tr>
-
+                            @if (count($merch)>0)
+                                @foreach ($merch as $m)
+                                <tr>
+                                    <td>{{$m->id}}</td>
+                                <td><img src="{{$m->img_path}}" class="img" alt="{{$m->name}}"></td>
+                                    <td>{{$m->name}}</td>
+                                    <td>Rp. {{number_format($m->price,0,",",".")}}</td>
+                                    <td class="action-group">
+                                    <a href="{{url("admin/merchandise/delete/")}}/{{$m->id}}" class="action delete"><i class="fas fa-times"></i></a>
+                                        <a href="{{url("admin/merchandise/edit/")}}/{{$m->id}}" class="action edit"><i class="far fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="5">Merchandise Not Found</td>
+                                </tr>
+                            @endif
                         </tbody>
                     </table>
                 </div>
@@ -83,22 +67,27 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form>
+                    <form action="{{url("admin/merchandise/tambah")}}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
-
+                            @csrf
                             <div class="form-group">
                                 <label for="inputJudul">Judul</label>
-                                <input type="text" class="form-control" id="inputJudul" name="judul">
+                                <input type="text" class="form-control" id="inputJudul" name="name">
                             </div>
 
                             <div class="form-group">
-                                <label for="inputJudul">Harga</label>
-                                <input type="number" class="form-control" id="inputJudul" name="harga">
+                                <label for="inputDeskripsi">Deskripsi</label>
+                                <textarea type="text" class="form-control" id="inputDeskripsi" name="description"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputHarga">Harga</label>
+                                <input type="number" class="form-control" id="inputHarga" name="price">
                             </div>
 
                             <div class="form-group">
                                 <label for="inputFile">Upload File</label>
-                                <input type="file" id="inputFile" name="file">
+                                <input type="file" id="inputFile" name="image">
                             </div>
 
                         </div>

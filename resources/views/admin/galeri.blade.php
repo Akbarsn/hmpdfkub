@@ -27,39 +27,29 @@
                                 <th scope="col">ID</th>
                                 <th scope="col">Gambar</th>
                                 <th scope="col">Deskripsi</th>
-                                <th scope="col">Aksi</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
 
                         <tbody>
 
+                            @if (count($galeri)>0)
+                            @foreach ($galeri as $g)
                             <tr>
-                                <td>1</td>
-                                <td><img src="{{asset("images/dummy_galeri-1.jpg")}}" class="img"></td>
-                                <td>Pengmas</td>
+                                <td>{{$g->id}}</td>
+                                <td><img src="{{$g->image_path}}" class="img" alt="{{$g->image_title}}"></td>
+                                <td>{{$g->image_title}}</td>
                                 <td>
-                                    <a href="" class="action delete"><i class="fas fa-times"></i></a>
+                                    <a href="{{url("admin/galeri/delete/")}}{{$g->id}}" class="action delete"><i
+                                            class="fas fa-times"></i></a>
                                 </td>
                             </tr>
-
-
+                            @endforeach
+                            @else
                             <tr>
-                                <td>1</td>
-                                <td><img src="{{asset("images/dummy_galeri-1.jpg")}}" class="img"></td>
-                                <td>Pengmas</td>
-                                <td>
-                                    <a href="" class="action delete"><i class="fas fa-times"></i></a>
-                                </td>
+                                <td colspan="4"><h3>Image Not Found</h3></td>
                             </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td><img src="{{asset("images/dummy_galeri-1.jpg")}}" class="img"></td>
-                                <td>Pengmas</td>
-                                <td>
-                                    <a href="" class="action delete"><i class="fas fa-times"></i></a>
-                                </td>
-                            </tr>
+                            @endif
                         </tbody>
                     </table>
                 </div>
@@ -70,16 +60,16 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addModal">Tambahkan Galeri</h5>
+                        <h5 class="modal-title" id="addModal">Tambahkan Foto</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form>
+                    <form action="{{url("admin/galeri/tambah")}}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
 
                             <div class="form-group">
-                                <label for="inputJudul">Deskripsi</label>
+                                <label for="inputJudul">Judul</label>
                                 <input type="text" class="form-control" id="inputJudul" name="judul">
                             </div>
 

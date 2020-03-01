@@ -26,10 +26,9 @@ Route::get('/berita', 'NewsController@viewAllNews');
 Route::get('/berita/{id}', 'NewsController@viewNewsByID');
 
 //Galeri
-Route::get('/galeri', function () {
-    return view('page.galeri');
-});
+Route::get('/galeri', 'GalleryController@viewAllImage');
 
+//Merchandise
 Route::get('/merchandise', function () {
     return view('page.merchandise');
 });
@@ -58,13 +57,17 @@ Route::post('/admin/berita/update/send/{id}', 'NewsController@editNews');
 
 Route::delete('/admin/berita/delete/{id}', 'NewsController@deleteNews');
 
+//Galeri
+Route::get('/admin/galeri', 'GalleryController@viewAdmin');
+
+Route::delete('/admin/galeri/delete/{id}', 'GalleryController@deleteGallery');
+
+Route::post('/admin/galeri/tambah', 'GalleryController@addPicture');
+
 Route::get('/admin/event', function () {
     return view('admin.event');
 });
 
-Route::get('/admin/galeri', function () {
-    return view('admin.galeri');
-});
 
 Route::get('/admin/merchandise', function () {
     return view('admin.merchandise');

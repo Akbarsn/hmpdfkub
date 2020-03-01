@@ -70,12 +70,12 @@
 
                             <div class="form-group">
                                 <label for="inputJudul">Judul</label>
-                                <input type="text" class="form-control" id="inputJudul" name="judul">
+                                <input type="text" class="form-control" id="inputJudul" name="image_title">
                             </div>
 
                             <div class="form-group">
                                 <label for="inputFile">Upload File</label>
-                                <input type="file" id="inputFile" name="file">
+                                <input type="file" id="inputFile" name="image">
                             </div>
 
                         </div>

@@ -13,12 +13,14 @@ class GalleryController extends Controller
         $image_title = $request->input('image_title');
         $galeri->image_title = $request->input('image_title');
         $image = $request->file('image');
-        $image_name = $image_title . "." . time() . '.' . $image->getClientOriginalExtension();
-        // $path = $request->file('image')->storeAs('', $image_name);
-        $galeri->image_path = "" . $image_name;
+        $image_title = $image_title . "." . time() . '.' . $image->getClientOriginalExtension();
+        $image->move("upload/galeri/", $image_title);
+        $galeri->image_path = "upload/galeri/" . $image_title;
         $galeri->save();
         return redirect(url("admin/galeri"));
     }
+
+
 
     // public function editPicture(Request $request)
     // {

@@ -40,7 +40,7 @@
                                 <td><img src="{{$g->image_path}}" class="img" alt="{{$g->image_title}}"></td>
                                 <td>{{$g->image_title}}</td>
                                 <td>
-                                    <a href="{{url("admin/galeri/delete/")}}{{$g->id}}" class="action delete"><i
+                                    <a href="{{url("admin/galeri/delete/")}}/{{$g->id}}" class="action delete"><i
                                             class="fas fa-times"></i></a>
                                 </td>
                             </tr>

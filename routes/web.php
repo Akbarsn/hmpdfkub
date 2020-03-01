@@ -19,7 +19,6 @@ Route::get('/profil', function () {
 
 Route::get('/bidang-kerja/{id}', 'HomeController@GetBidangKerja');
 
-
 //Berita
 Route::get('/berita', 'NewsController@viewAllNews');
 
@@ -29,9 +28,7 @@ Route::get('/berita/{id}', 'NewsController@viewNewsByID');
 Route::get('/galeri', 'GalleryController@viewAllImage');
 
 //Merchandise
-Route::get('/merchandise', function () {
-    return view('page.merchandise');
-});
+Route::get('/merchandise', 'MerchController@viewAll');
 
 Route::get('/sambat-kuy', function () {
     return view('page.form');
@@ -55,7 +52,7 @@ Route::get('/admin/berita/update/{id}', 'NewsController@viewUpdate');
 
 Route::post('/admin/berita/update/send/{id}', 'NewsController@editNews');
 
-Route::delete('/admin/berita/delete/{id}', 'NewsController@deleteNews');
+Route::get('/admin/berita/delete/{id}', 'NewsController@deleteNews');
 
 //Galeri
 Route::get('/admin/galeri', 'GalleryController@viewAdmin');
@@ -64,15 +61,37 @@ Route::delete('/admin/galeri/delete/{id}', 'GalleryController@deleteGallery');
 
 Route::post('/admin/galeri/tambah', 'GalleryController@addPicture');
 
-Route::get('/admin/event', function () {
-    return view('admin.event');
-});
+//Merchandise
+Route::get('/admin/merchandise', 'MerchController@viewAdmin');
 
+Route::post('/admin/merchandise/tambah', 'MerchController@AddMerch');
 
-Route::get('/admin/merchandise', function () {
-    return view('admin.merchandise');
-});
+Route::delete('/admin/merchandise/delete/{id}','MerchController@DeleteMerch');
 
-Route::get('/admin/proker', function () {
-    return view('admin.proker');
-});
+Route::get('/admin/merchandise/update/{id}','MerchController@');
+
+Route::post('/admin/merchandise/update/send/{id}','MerchController@');
+
+//Event
+Route::get('/admin/event', 'EventController@viewAdmin');
+
+Route::post('/admin/event/tambah','EventController@AddEvent');
+
+Route::delete('/admin/event/delete/{id}','EventController@DeleteEvent');
+
+Route::get('/admin/event/update/{id}','EventController@viewUpdate');
+
+Route::post('/admin/event/update/send/{id}','EventController@EditEvent');
+
+Route::get('/admin/event/done/{id}','EventController@DoneEvent');
+
+//Proker
+Route::get('/admin/proker', 'ProkerController@viewAdmin');
+
+Route::post('/admin/proker/tambah', 'ProkerController@AddProker');
+
+Route::get('/admin/proker/update/{id}', 'ProkerController@viewUpdate');
+
+Route::post('/admin/proker/update/send/{id}', 'ProkerController@EditProker');
+
+Route::delete('/admin/proker/delete/{id}', 'ProkerController@DeleteProker');

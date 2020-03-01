@@ -21,7 +21,7 @@ class HomeController extends Controller
             ->with('bidangKerja', $bidangKerja);
     }
 
-    public function GetBidangKerja(Request $request, $id)
+    public function GetBidangKerja($id)
     {
         $bidangKerja = BidangKerja::find($id);
         $proker = Proker::where('bidang_id', $id)->get();

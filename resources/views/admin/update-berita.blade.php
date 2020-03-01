@@ -7,7 +7,7 @@
         Update Berita
     </div>
     <div class="container">
-        <form action="{{url("admin/berita/update/send/")}}{{$news->id}}" method="POST" enctype="multipart/form-data">
+        <form action="{{url("admin/berita/update/send/")}}/{{$news->id}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="inputJudul">Judul</label>
@@ -17,7 +17,7 @@
             <div class="form-group">
                 <label for="inputDeskripsi">Deskripsi</label>
                 <textarea type="text" class="form-control" id="inputDeskripsi"
-                    name="news_content">{{$news->news_description}}</textarea>
+                    name="news_content">{{$news->news_content}}</textarea>
             </div>
 
             <div class="form-group">

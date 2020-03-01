@@ -38,29 +38,35 @@
                             @foreach ($news as $new)
                             <tr>
                                 <td>{{$new->id}}</td>
-                                <td><img src="{{$new->image_path}}" class="img"></td>
+                                <td><img src="/{{$new->image_path}}" class="img"></td>
                                 <td>{{$new->news_title}}</td>
                                 <td>
                                     <?php 
                                     $temp = explode(" ",$new->news_content);
                                     $desc = "";
-                                    for ($i=0; $i < 10; $i++) { 
-                                    $desc .= $temp[$i] . " ";    
+                                    if(count($temp)>10){
+                                        for ($i=0; $i < 10; $i++) { 
+                                            $desc .= $temp[$i] . " ";    
+                                        }
+                                    } else {
+                                        $desc = $new->news_content; 
                                     }
                                     echo $desc . "..."
                                   ?>
                                 </td>
                                 <td class="action-group">
-                                    <a href="{{url("admin/berita/delete/")}}.{{$new->id}}" class="action delete"><i
+                                    <a href="{{url("admin/berita/delete/")}}/{{$new->id}}" class="action delete"><i
                                             class="fas fa-times"></i></a>
-                                    <a href="{{url("admin/berita/update/")}}.{{$new->id}}" class="action edit"><i
+                                    <a href="{{url("admin/berita/update/")}}/{{$new->id}}" class="action edit"><i
                                             class="far fa-edit"></i></a>
                                 </td>
                             </tr>
                             @endforeach
                             @else
                             <tr>
-                                <td colspan="5"><h3>News Not Found</h3></td>
+                                <td colspan="5">
+                                    <h3>News Not Found</h3>
+                                </td>
                             </tr>
                             @endif
 
@@ -80,7 +86,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                <form action="{{url("admin/berita/tambah")}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{url("admin/berita/tambah")}}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
                             @csrf
                             <div class="form-group">

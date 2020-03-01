@@ -7,7 +7,8 @@ use App\News;
 
 class NewsController extends Controller
 {
-    public function viewAdmin(){
+    public function viewAdmin()
+    {
         $news = News::orderBy('created_at', 'desc')->get();
         return view('admin.berita')->with('news', $news);
     }
@@ -20,15 +21,16 @@ class NewsController extends Controller
         $news->news_content = $request->input('news_content');
         $image = $request->file('image');
         $image_title = $news_title . "." . time() . '.' . $image->getClientOriginalExtension();
-        // $path = $request->file('image')->storeAs('', $image_title);
-        $news->image_path = "" . $image_title;
+        $image->move("upload/berita/", $image_title);
+        $news->image_path = "upload/berita/" . $image_title;
         $news->save();
-        redirect(url("/admin/berita"))
+        return redirect(url("admin/berita"));
     }
 
-    public function viewUpdate($id){
+    public function viewUpdate($id)
+    {
         $news = News::find($id);
-        return view('admin.update-berita')->with('news',$news);
+        return view('admin.update-berita')->with('news', $news);
     }
 
     public function editNews(Request $request, $id)
@@ -36,12 +38,12 @@ class NewsController extends Controller
         $news = News::find($id);
         $news->news_title = $request->input('news_title');
         $news->news_content = $request->input('news_content');
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $news_title = $request->input('news_title');
             $image = $request->file('image');
             $image_title = $news_title . "." . time() . '.' . $image->getClientOriginalExtension();
-            // $path = $request->file('image')->storeAs('', $image_title);
-            $news->image_path = "" . $image_title;
+            $image->move("upload/berita/", $image_title);
+            $news->image_path = "upload/berita/" . $image_title;
         }
         $news->save();
         return redirect(url("/admin/berita"));
@@ -49,7 +51,6 @@ class NewsController extends Controller
 
     public function deleteNews($id)
     {
-        echo "berhasil";
         $news = News::find($id);
         $news->delete();
         return redirect(url("/admin/berita"));
@@ -66,7 +67,7 @@ class NewsController extends Controller
     {
         $recommendedNews = News::orderBy('created_at', 'desc')->limit(3)->get();
         $news = News::find($id);
-        if($news!= null){
+        if ($news != null) {
             return view('page.berita-detail')
                 ->with('news', $news)
                 ->with('recommendedNews', $recommendedNews);

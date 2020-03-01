@@ -15,8 +15,8 @@ class Proker extends Migration
     {
         Schema::create('proker', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('proker_title');
-            $table->string('proker-description');
+            $table->string('title');
+            $table->string('description');
             $table->integer('bidang_id');
             $table->timestamps();
         });

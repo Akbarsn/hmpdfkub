@@ -33,41 +33,32 @@
 
                         <tbody>
 
+                            @if (count($proker)>0)
+                            @foreach ($proker as $p)
                             <tr>
-                                <td>1</td>
-                                <td>Pengabdian Masyarakat</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quisquam quod nihil
-                                    doloribus nostrum? Officiis laudantium aperiam neque mollitia quos, sapiente
-                                    excepturi, iure inventore sit consectetur voluptates ea placeat explicabo!</td>
+                                <td>{{$p->id}}</td>
+                                <td>{{$p->title}}</td>
+                                <td>
+                                    <?php 
+                                    $temp = explode(" ",$p->description);
+                                    $desc = "";
+                                    for ($i=0; $i < 10; $i++) { 
+                                    $desc .= $temp[$i] . " ";    
+                                    }
+                                    echo $desc . "..."
+                                  ?>
+                                </td>
                                 <td class="action-group">
-                                    <a href="" class="action delete"><i class="fas fa-times"></i></a>
-                                    <a href="" class="action edit"><i class="far fa-edit"></i></a>
+                                    <a href="{{url("admin/proker/delete/")}}/{{$p->id}}" class="action delete"><i
+                                            class="fas fa-times"></i></a>
+                                    <a href="{{url("admin/proker/update/")}}/{{$p->id}}" class="action edit"><i
+                                            class="far fa-edit"></i></a>
                                 </td>
                             </tr>
+                            @endforeach
+                            @else
 
-                            <tr>
-                                <td>1</td>
-                                <td>Pengabdian Masyarakat</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quisquam quod nihil
-                                    doloribus nostrum? Officiis laudantium aperiam neque mollitia quos, sapiente
-                                    excepturi, iure inventore sit consectetur voluptates ea placeat explicabo!</td>
-                                <td class="action-group">
-                                    <a href="" class="action delete"><i class="fas fa-times"></i></a>
-                                    <a href="" class="action edit"><i class="far fa-edit"></i></a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Pengabdian Masyarakat</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quisquam quod nihil
-                                    doloribus nostrum? Officiis laudantium aperiam neque mollitia quos, sapiente
-                                    excepturi, iure inventore sit consectetur voluptates ea placeat explicabo!</td>
-                                <td class="action-group">
-                                    <a href="" class="action delete"><i class="fas fa-times"></i></a>
-                                    <a href="" class="action edit"><i class="far fa-edit"></i></a>
-                                </td>
-                            </tr>
+                            @endif
 
                         </tbody>
                     </table>
@@ -84,22 +75,31 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form>
+                    <form action="{{url("admin/proker/tambah")}}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
-
+                            @csrf
                             <div class="form-group">
                                 <label for="inputJudul">Judul</label>
-                                <input type="text" class="form-control" id="inputJudul" name="judul">
+                                <input type="text" class="form-control" id="inputJudul" name="title">
                             </div>
 
                             <div class="form-group">
                                 <label for="inputDeskripsi">Deskripsi</label>
-                                <textarea type="text" class="form-control" id="inputDeskripsi" name="description"></textarea>
+                                <textarea type="text" class="form-control" id="inputDeskripsi"
+                                    name="description"></textarea>
                             </div>
 
                             <div class="form-group">
-                                <label for="inputFile">Upload File</label>
-                                <input type="file" id="inputFile" name="file">
+                                <label for="inputJudul">Bidang</label>
+                                <select class="custom-select">
+                                    <option selected>Choose...</option>
+                                    <option value="1">PAK</option>
+                                    <option value="2">ASK</option>
+                                    <option value="3">PSDM</option>
+                                    <option value="4">TIK</option>
+                                    <option value="5">PENGMAS</option>
+                                    <option value="6">KDR</option>
+                                  </select>
                             </div>
 
                         </div>

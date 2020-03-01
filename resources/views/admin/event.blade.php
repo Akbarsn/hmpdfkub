@@ -28,53 +28,43 @@
                                 <th scope="col">Nama Event</th>
                                 <th scope="col">Deskripsi</th>
                                 <th scope="col">Tanggal</th>
-                                <th scope="col" class="center">Aksi</th>
+                                <th scope="col" class="center"></th>
                             </tr>
                         </thead>
 
                         <tbody>
 
+                            @if (count($event)>0)
+                            @foreach ($event as $e)
                             <tr>
-                                <td>1</td>
-                                <td>Pengabdian Masyarakat</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quisquam quod nihil
-                                    doloribus nostrum? Officiis laudantium aperiam neque mollitia quos, sapiente
-                                    excepturi, iure inventore sit consectetur voluptates ea placeat explicabo!</td>
-                                <td>27-02-2020</td>
+                                <td>{{$e->id}}</td>
+                                <td>{{$e->name}}</td>
+                                <td>
+                                    <?php 
+                                    $temp = explode(" ",$e->description);
+                                    $desc = "";
+                                    for ($i=0; $i < 10; $i++) { 
+                                    $desc .= $temp[$i] . " ";    
+                                    }
+                                    echo $desc . "..."
+                                ?>
+                                </td>
+                                <td>{{$e->date}}</td>
                                 <td class="action-group">
-                                    <a href="" class="action delete"><i class="fas fa-times"></i></a>
-                                    <a href="" class="action check"><i class="fas fa-check"></i></a>
-                                    <a href="" class="action edit"><i class="far fa-edit"></i></a>
+                                    <a href="{{url("admin/event/delete/")}}/{{$e->id}}" class="action delete"><i
+                                            class="fas fa-times"></i></a>
+                                    <a href="{{url("admin/event/done/")}}/{{$e->id}}" class="action check"><i
+                                            class="fas fa-check"></i></a>
+                                    <a href="{{url("admin/event/update/")}}/{{$e->id}}" class="action edit"><i
+                                            class="far fa-edit"></i></a>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Pengabdian Masyarakat</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quisquam quod nihil
-                                    doloribus nostrum? Officiis laudantium aperiam neque mollitia quos, sapiente
-                                    excepturi, iure inventore sit consectetur voluptates ea placeat explicabo!</td>
-                                <td>27-02-2020</td>
-                                <td class="action-group">
-                                    <a href="" class="action delete"><i class="fas fa-times"></i></a>
-                                    <a href="" class="action check"><i class="fas fa-check"></i></a>
-                                    <a href="" class="action edit"><i class="far fa-edit"></i></a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Pengabdian Masyarakat</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quisquam quod nihil
-                                    doloribus nostrum? Officiis laudantium aperiam neque mollitia quos, sapiente
-                                    excepturi, iure inventore sit consectetur voluptates ea placeat explicabo!</td>
-                                <td>27-02-2020</td>
-                                <td class="action-group">
-                                    <a href="" class="action delete"><i class="fas fa-times"></i></a>
-                                    <a href="" class="action check"><i class="fas fa-check"></i></a>
-                                    <a href="" class="action edit"><i class="far fa-edit"></i></a>
-                                </td>
-                            </tr>
+                            @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="5">Event not found</td>
+                                </tr>
+                            @endif
 
                         </tbody>
                     </table>
@@ -91,9 +81,9 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form>
+                    <form action="{{url("admin/event/tambah")}}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
-
+                            @csrf
                             <div class="form-group">
                                 <label for="inputNamaEvent">Nama Event</label>
                                 <input type="text" class="form-control" id="inputNamaEvent" name="name">
@@ -101,14 +91,14 @@
 
                             <div class="form-group">
                                 <label for="inputDeskripsi">Deskripsi</label>
-                                <textarea type="text" class="form-control" id="inputDeskripsi" name="description"></textarea>
+                                <textarea type="text" class="form-control" id="inputDeskripsi"
+                                    name="description"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="inputTanggal">Tanggal Dilaksanakan</label>
                                 <input type="date" class="form-control" id="inputTanggal" name="date">
                             </div>
-
                         </div>
 
                         <div class="modal-footer">

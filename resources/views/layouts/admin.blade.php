@@ -17,6 +17,8 @@
 
 <body>
     @include('inc.admin-navbar')
+
+    include('inc.message')
     @yield('body')
 </body>
 <script src="https://kit.fontawesome.com/5a91d5d98c.js" crossorigin="anonymous"></script>

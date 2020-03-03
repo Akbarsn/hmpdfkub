@@ -17,7 +17,7 @@ class GalleryController extends Controller
         $image->move("upload/galeri/", $image_title);
         $galeri->image_path = "upload/galeri/" . $image_title;
         $galeri->save();
-        return redirect(url("admin/galeri"));
+        return redirect(url("admin/galeri"))->with('success', 'Image added');
     }
 
 
@@ -42,7 +42,7 @@ class GalleryController extends Controller
     {
         $galeri = Gallery::find($id);
         $galeri->delete();
-        return redirect(url("admin/galeri"));
+        return redirect(url("admin/galeri"))->with('success', 'Image deleted');
     }
     
     public function viewAllImage()

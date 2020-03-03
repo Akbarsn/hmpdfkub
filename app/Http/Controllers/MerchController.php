@@ -37,6 +37,7 @@ class MerchController extends Controller
         $image->move("upload/merch/", $image_title);
         $merch->image_path = "upload/merch/" . $image_title;
         $merch->save();
+        return redirect(url('/admin/merch'))->with('success', 'Merch added');
     }
 
     public function EditMerch(Request $request)
@@ -54,11 +55,13 @@ class MerchController extends Controller
             $merch->image_path = "upload/merch/" . $image_title;
         }
         $merch->save();
+        return redirect(url('/admin/merch'))->with('success', 'Merch edited');
     }
 
     public function DeleteMerch($id)
     {
         $merch = Merchandises::find($id);
         $merch->delete();
+        return redirect(url('/admin/merch'))->with('success', 'Merch deleted');
     }
 }

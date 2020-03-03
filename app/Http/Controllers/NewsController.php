@@ -24,7 +24,7 @@ class NewsController extends Controller
         $image->move("upload/berita/", $image_title);
         $news->image_path = "upload/berita/" . $image_title;
         $news->save();
-        return redirect(url("admin/berita"));
+        return redirect(url("admin/berita"))->with('success','News added');
     }
 
     public function viewUpdate($id)
@@ -46,24 +46,24 @@ class NewsController extends Controller
             $news->image_path = "upload/berita/" . $image_title;
         }
         $news->save();
-        return redirect(url("/admin/berita"));
+        return redirect(url("/admin/berita"))->with('success','News edited');
     }
 
     public function deleteNews($id)
     {
         $news = News::find($id);
         $news->delete();
-        return redirect(url("/admin/berita"));
+        return redirect(url("/admin/berita"))->with('success','News deleted');
     }
 
-    public function viewAllNews(Request $request)
+    public function viewAllNews()
     {
         $latestNews = News::orderBy('created_at', 'desc')->limit(4)->get();
         $news = News::orderBy('created_at', 'desc')->paginate(6);
         return view('page.berita')->with('news', $news)->with('latestNews', $latestNews);
     }
 
-    public function viewNewsByID(Request $request, $id)
+    public function viewNewsByID($id)
     {
         $recommendedNews = News::orderBy('created_at', 'desc')->limit(3)->get();
         $news = News::find($id);
@@ -72,7 +72,7 @@ class NewsController extends Controller
                 ->with('news', $news)
                 ->with('recommendedNews', $recommendedNews);
         } else {
-            echo "Error";
+            return redirect(url('berita'));
         }
     }
 }

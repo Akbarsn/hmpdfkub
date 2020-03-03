@@ -24,7 +24,7 @@ class EventController extends Controller
         $event->description = $request->input('description');
         $event->date = $request->input('date');
         $event->save();
-        return redirect(url("admin/event"));
+        return redirect(url("admin/event"))->with('success', 'Event added');
     }
     
     public function EditEvent(Request $request, $id)
@@ -34,14 +34,14 @@ class EventController extends Controller
         $event->description = $request->input('description');
         $event->date = $request->input('date');
         $event->save();
-        return redirect(url("admin/event"));
+        return redirect(url("admin/event"))->with('success', 'Event edited');
     }
     
     public function DeleteEvent($id)
     {
         $event = Event::find($id);
         $event->delete();
-        return redirect(url("admin/event"));
+        return redirect(url("admin/event"))->with('success', 'Event deleted');
     }
     
     public function DoneEvent($id)
@@ -49,6 +49,6 @@ class EventController extends Controller
         $event = Event::find($id);
         $event->isDone = true;
         $event->save();
-        return redirect(url("admin/event"));
+        return redirect(url("admin/event"))->with('success', 'Successful');
     }
 }

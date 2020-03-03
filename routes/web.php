@@ -39,59 +39,66 @@ Route::get('/login', function () {
     return view('admin.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
+Route::post('/login/send', 'AuthController@handleLogin');
+
+
+Route::group(['middleware' => 'check'], function () {
+    Route::get('/log-out', 'AuthController@logOut');
+
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+
+    //News
+    Route::get('/admin/berita', 'NewsController@viewAdmin');
+
+    Route::post('/admin/berita/tambah', 'NewsController@addNews');
+
+    Route::get('/admin/berita/update/{id}', 'NewsController@viewUpdate');
+
+    Route::post('/admin/berita/update/send/{id}', 'NewsController@editNews');
+
+    Route::get('/admin/berita/delete/{id}', 'NewsController@deleteNews');
+
+    //Galeri
+    Route::get('/admin/galeri', 'GalleryController@viewAdmin');
+
+    Route::delete('/admin/galeri/delete/{id}', 'GalleryController@deleteGallery');
+
+    Route::post('/admin/galeri/tambah', 'GalleryController@addPicture');
+
+    //Merchandise
+    Route::get('/admin/merchandise', 'MerchController@viewAdmin');
+
+    Route::post('/admin/merchandise/tambah', 'MerchController@AddMerch');
+
+    Route::delete('/admin/merchandise/delete/{id}', 'MerchController@DeleteMerch');
+
+    Route::get('/admin/merchandise/update/{id}', 'MerchController@');
+
+    Route::post('/admin/merchandise/update/send/{id}', 'MerchController@');
+
+    //Event
+    Route::get('/admin/event', 'EventController@viewAdmin');
+
+    Route::post('/admin/event/tambah', 'EventController@AddEvent');
+
+    Route::delete('/admin/event/delete/{id}', 'EventController@DeleteEvent');
+
+    Route::get('/admin/event/update/{id}', 'EventController@viewUpdate');
+
+    Route::post('/admin/event/update/send/{id}', 'EventController@EditEvent');
+
+    Route::get('/admin/event/done/{id}', 'EventController@DoneEvent');
+
+    //Proker
+    Route::get('/admin/proker', 'ProkerController@viewAdmin');
+
+    Route::post('/admin/proker/tambah', 'ProkerController@AddProker');
+
+    Route::get('/admin/proker/update/{id}', 'ProkerController@viewUpdate');
+
+    Route::post('/admin/proker/update/send/{id}', 'ProkerController@EditProker');
+
+    Route::delete('/admin/proker/delete/{id}', 'ProkerController@DeleteProker');
 });
-
-//News
-Route::get('/admin/berita', 'NewsController@viewAdmin');
-
-Route::post('/admin/berita/tambah', 'NewsController@addNews');
-
-Route::get('/admin/berita/update/{id}', 'NewsController@viewUpdate');
-
-Route::post('/admin/berita/update/send/{id}', 'NewsController@editNews');
-
-Route::get('/admin/berita/delete/{id}', 'NewsController@deleteNews');
-
-//Galeri
-Route::get('/admin/galeri', 'GalleryController@viewAdmin');
-
-Route::delete('/admin/galeri/delete/{id}', 'GalleryController@deleteGallery');
-
-Route::post('/admin/galeri/tambah', 'GalleryController@addPicture');
-
-//Merchandise
-Route::get('/admin/merchandise', 'MerchController@viewAdmin');
-
-Route::post('/admin/merchandise/tambah', 'MerchController@AddMerch');
-
-Route::delete('/admin/merchandise/delete/{id}','MerchController@DeleteMerch');
-
-Route::get('/admin/merchandise/update/{id}','MerchController@');
-
-Route::post('/admin/merchandise/update/send/{id}','MerchController@');
-
-//Event
-Route::get('/admin/event', 'EventController@viewAdmin');
-
-Route::post('/admin/event/tambah','EventController@AddEvent');
-
-Route::delete('/admin/event/delete/{id}','EventController@DeleteEvent');
-
-Route::get('/admin/event/update/{id}','EventController@viewUpdate');
-
-Route::post('/admin/event/update/send/{id}','EventController@EditEvent');
-
-Route::get('/admin/event/done/{id}','EventController@DoneEvent');
-
-//Proker
-Route::get('/admin/proker', 'ProkerController@viewAdmin');
-
-Route::post('/admin/proker/tambah', 'ProkerController@AddProker');
-
-Route::get('/admin/proker/update/{id}', 'ProkerController@viewUpdate');
-
-Route::post('/admin/proker/update/send/{id}', 'ProkerController@EditProker');
-
-Route::delete('/admin/proker/delete/{id}', 'ProkerController@DeleteProker');

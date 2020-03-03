@@ -31,15 +31,16 @@
         </div>
         <div class="d-flex justify-content-center">
             <div class="col-lg-5" id="loginBase">
-                <form>
+                <form action="{{url("/login/send")}}" method="POST">
+                    @csrf
                     <div class="container">
                         <div class="form-group">
                             <label for="inputEmail" id="labelText">Username</label>
-                            <input type="username" class="form-control" id="inputEmail" placeholder="Eg. johndoe">
+                            <input type="text" name="username" class="form-control" id="inputEmail" placeholder="Eg. johndoe">
                         </div>
                         <div class="form-group">
                             <label for="inputPassword" id="labelText">Password</label>
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Eg. ********">
+                            <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Eg. ********">
                         </div>
                         <div id="but">
                             <button type="submit" class="btn btn-success">Submit</button>

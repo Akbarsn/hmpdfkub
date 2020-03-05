@@ -68,14 +68,17 @@ section {
 }
 
 /* About Us */
-#about_us .container {
+#about_us .content {
     margin-top: 15vh;
     margin-bottom: 20vh;
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #about-us-image {
     height: auto;
-    width: 40vw;
+    width: 30vw;
 }
 
 /* What New */

@@ -16,12 +16,10 @@ body{
 }
 
 .profil__logo {
-    width: 20vw;
+    width: 20rem;
     height: auto;
-    margin-top: 12vh;
+    margin-top: 17vh;
 }
-
-
 
 #header {
     background-color: var(--main-bg-color);

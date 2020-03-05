@@ -15,16 +15,22 @@ class NewsController extends Controller
 
     public function addNews(Request $request)
     {
+        date_default_timezone_set('Asia/Jakarta');
+
+        $request->validate([
+            'image' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048',
+        ]);
+        
         $news = new News;
-        $news_title = $request->input('news_title');
-        $news->news_title = $request->input('news_title');
-        $news->news_content = $request->input('news_content');
+        $title = $request->input('title');
+        $news->title = $request->input('title');
+        $news->content = $request->input('content');
         $image = $request->file('image');
-        $image_title = $news_title . "." . time() . '.' . $image->getClientOriginalExtension();
+        $image_title = $title . "." . date('Y-m-d') . '.' . $image->getClientOriginalExtension();
         $image->move("upload/berita/", $image_title);
         $news->image_path = "upload/berita/" . $image_title;
         $news->save();
-        return redirect(url("admin/berita"))->with('success','News added');
+        return redirect(url("admin/berita"))->with('success', 'News added');
     }
 
     public function viewUpdate($id)
@@ -35,25 +41,27 @@ class NewsController extends Controller
 
     public function editNews(Request $request, $id)
     {
+        date_default_timezone_set('Asia/Jakarta');
+
         $news = News::find($id);
-        $news->news_title = $request->input('news_title');
-        $news->news_content = $request->input('news_content');
+        $news->title = $request->input('title');
+        $news->content = $request->input('content');
         if ($request->hasFile('image')) {
-            $news_title = $request->input('news_title');
+            $title = $request->input('title');
             $image = $request->file('image');
-            $image_title = $news_title . "." . time() . '.' . $image->getClientOriginalExtension();
+            $image_title = $title . "." . date('Y-m-d') . '.' . $image->getClientOriginalExtension();
             $image->move("upload/berita/", $image_title);
             $news->image_path = "upload/berita/" . $image_title;
         }
         $news->save();
-        return redirect(url("/admin/berita"))->with('success','News edited');
+        return redirect(url("/admin/berita"))->with('success', 'News edited');
     }
 
     public function deleteNews($id)
     {
         $news = News::find($id);
         $news->delete();
-        return redirect(url("/admin/berita"))->with('success','News deleted');
+        return redirect(url("/admin/berita"))->with('success', 'News deleted');
     }
 
     public function viewAllNews()

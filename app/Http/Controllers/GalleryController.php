@@ -9,13 +9,20 @@ class GalleryController extends Controller
 {
     public function addPicture(Request $request)
     {
+
+        date_default_timezone_set('Asia/Jakarta');
+
+        $request->validate([
+            'image' => 'required|file|image|mimes:jpeg,png,gif,webp|max:2048',
+        ]);
+
         $galeri = new Gallery;
         $image_title = $request->input('image_title');
-        $galeri->image_title = $request->input('image_title');
+        $galeri->title = $request->input('image_title');
         $image = $request->file('image');
-        $image_title = $image_title . "." . time() . '.' . $image->getClientOriginalExtension();
+        $image_title = $image_title . "_" . date('Y-m-d') . '.' . $image->getClientOriginalExtension();
         $image->move("upload/galeri/", $image_title);
-        $galeri->image_path = "upload/galeri/" . $image_title;
+        $galeri->img_path = "upload/galeri/" . $image_title;
         $galeri->save();
         return redirect(url("admin/galeri"))->with('success', 'Image added');
     }

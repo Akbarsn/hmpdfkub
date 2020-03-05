@@ -26,11 +26,6 @@ class AuthController extends Controller
         }
     }
 
-    public function getHashedPassword()
-    {
-        echo Hash::make("hmpdfkub123");
-    }
-
     public function logOut(Request $request)
     {
         $request->session()->flush();

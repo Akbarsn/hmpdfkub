@@ -16,8 +16,8 @@ class News extends Migration
         Schema::create('news', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('image_path');
-            $table->string('news_title');
-            $table->string('news_content');
+            $table->string('title');
+            $table->string('content');
             $table->timestamps();
         });
     }

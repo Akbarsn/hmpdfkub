@@ -15,8 +15,8 @@ class Gallery extends Migration
     {
         Schema::create('gallery', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('image_path');
-            $table->string('image_title')->default("-");
+            $table->string('img_path');
+            $table->string('title')->default("-");
             $table->timestamps();
         });
     }

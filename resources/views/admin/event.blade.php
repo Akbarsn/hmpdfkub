@@ -40,30 +40,30 @@
                                 <td>{{$e->id}}</td>
                                 <td>{{$e->name}}</td>
                                 <td>
-                                    <?php 
-                                    $temp = explode(" ",$e->description);
+                                    <?php
+                                    $temp = explode(" ", $e->description);
                                     $desc = "";
-                                    for ($i=0; $i < 10; $i++) { 
-                                    $desc .= $temp[$i] . " ";    
+                                    if (count($temp) > 10) {
+                                        for ($i = 0; $i < 10; $i++) {
+                                            $desc .= $temp[$i] . " ";
+                                        }
+                                    } else {
                                     }
                                     echo $desc . "..."
-                                ?>
+                                    ?>
                                 </td>
                                 <td>{{$e->date}}</td>
                                 <td class="action-group">
-                                    <a href="{{url("admin/event/delete/")}}/{{$e->id}}" class="action delete"><i
-                                            class="fas fa-times"></i></a>
-                                    <a href="{{url("admin/event/done/")}}/{{$e->id}}" class="action check"><i
-                                            class="fas fa-check"></i></a>
-                                    <a href="{{url("admin/event/update/")}}/{{$e->id}}" class="action edit"><i
-                                            class="far fa-edit"></i></a>
+                                    <a href="{{url("admin/event/delete/")}}/{{$e->id}}" class="action delete"><i class="fas fa-times"></i></a>
+                                    <a href="{{url("admin/event/done/")}}/{{$e->id}}" class="action check"><i class="fas fa-check"></i></a>
+                                    <a href="{{url("admin/event/update/")}}/{{$e->id}}" class="action edit"><i class="far fa-edit"></i></a>
                                 </td>
                             </tr>
                             @endforeach
                             @else
-                                <tr>
-                                    <td colspan="5">Event not found</td>
-                                </tr>
+                            <tr>
+                                <td colspan="5">Event not found</td>
+                            </tr>
                             @endif
 
                         </tbody>
@@ -86,18 +86,17 @@
                             @csrf
                             <div class="form-group">
                                 <label for="inputNamaEvent">Nama Event</label>
-                                <input type="text" class="form-control" id="inputNamaEvent" name="name">
+                                <input type="text" class="form-control" id="inputNamaEvent" name="name" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="inputDeskripsi">Deskripsi</label>
-                                <textarea type="text" class="form-control" id="inputDeskripsi"
-                                    name="description"></textarea>
+                                <textarea type="text" class="form-control" id="inputDeskripsi" name="description" required></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="inputTanggal">Tanggal Dilaksanakan</label>
-                                <input type="date" class="form-control" id="inputTanggal" name="date">
+                                <input type="date" class="form-control" id="inputTanggal" name="date" required>
                             </div>
                         </div>
 

@@ -28,7 +28,7 @@
                     <a class="nav-link" href="/admin/proker">Proker</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Log out</a>
+                    <a class="nav-link" href="/log-out">Log out</a>
                 </li>
             </ul>
         </span>

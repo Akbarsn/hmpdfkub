@@ -67,7 +67,7 @@
                     </div>
                     <form action="{{url("admin/galeri/tambah")}}" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
-
+                            @csrf
                             <div class="form-group">
                                 <label for="inputJudul">Judul</label>
                                 <input type="text" class="form-control" id="inputJudul" name="image_title">

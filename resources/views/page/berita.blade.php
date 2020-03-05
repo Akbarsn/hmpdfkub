@@ -117,15 +117,19 @@
             @if (count($news)>0)
             @foreach ($news as $new)
             <div class="card">
-                <img src="{{$new->image_path}}" class="card-img-top" alt="{{$new->news_title}}">
+                <img src="{{$new->image_path}}" class="card-img-top" alt="{{$new->title}}">
                 <div class="card-body">
-                    <h5 class="card-title">{{$new->news_title}}</h5>
+                    <h5 class="card-title">{{$new->title}}</h5>
                     <p class="card-text">
                         <?php 
-                            $temp = explode(" ",$new->news_content);
+                            $temp = explode(" ",$new->content);
                             $desc = "";
-                            for ($i=0; $i < 12; $i++) { 
-                            $desc .= $temp[$i] . " ";    
+                            if(count($temp)>12){
+                                for ($i=0; $i < 12; $i++) { 
+                                    $desc .= $temp[$i] . " ";    
+                                    }
+                            } else {
+                                $desc = $new->content;
                             }
                             echo $desc . "..."
                         ?>

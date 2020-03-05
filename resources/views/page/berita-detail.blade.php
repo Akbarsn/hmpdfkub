@@ -9,7 +9,7 @@
             <div class="col-md-9" id="left">
                 <div class="wrapper">
                     <span class="header">
-                        {{$news->news_title}}
+                        {{$news->title}}
                     </span>
 
                     <div class="detail-image">
@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="isi-detail">
-                        {{$news->news_content}}
+                        {{$news->content}}
                     </div>
                 </div>
             </div>
@@ -31,16 +31,20 @@
                 @foreach ($recommendedNews as $news)
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{$news->news_title}}</h5>
+                        <h5 class="card-title">{{$news->title}}</h5>
                         <p class="card-text">
-                            <?php 
-                            $temp = explode(" ",$news->news_content);
+                            <?php
+                            $temp = explode(" ", $news->content);
                             $desc = "";
-                            for ($i=0; $i < 4; $i++) { 
-                            $desc .= $temp[$i] . " ";    
+                            if (count($temp) > 4) {
+                                for ($i = 0; $i < 4; $i++) {
+                                    $desc .= $temp[$i] . " ";
+                                }
+                            } else {
+                                $desc = $news->content;
                             }
                             echo $desc . "..."
-                        ?>
+                            ?>
                         </p>
                         <a href="{{url("berita")}}/{{$new->id}}" class="card-link">Selengkapnya</a>
                     </div>

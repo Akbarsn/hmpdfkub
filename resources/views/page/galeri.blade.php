@@ -1,7 +1,6 @@
 @extends('layouts.apps')
 
 @section('body')
-{{-- Isi sini gan --}}
 <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/galeri.css') }}">
 <section class="galeri">
@@ -17,8 +16,8 @@
                     @foreach ($galeri as $g)
                     <div class="galeri__photo-image">
                         <a data-target="#modalIMG" data-toggle="modal">
-                            <img class="galeri__image" src="{{$g->image_path}}"
-                        alt="{{$g->image_title}}">
+                            <img class="galeri__image" src="{{$g->img_path}}"
+                        alt="{{$g->title}}">
                         </a>
                     </div>
                     @endforeach

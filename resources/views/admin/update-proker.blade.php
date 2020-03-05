@@ -7,8 +7,7 @@
         Update Proker
     </div>
     <div class="container">
-        <form action="{{url("admin/proker/update/send/")}}/{{$proker->id}}" method="POST"
-            enctype="multipart/form-data">
+        <form action="{{url("admin/proker/update/send/")}}/{{$proker->id}}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="inputJudul">Judul</label>
@@ -22,8 +21,7 @@
 
             <div class="form-group">
                 <label for="inputJudul">Bidang</label>
-                <select class="custom-select">
-                    <option selected>Choose...</option>
+                <select class="custom-select" name="bidang_id">
                     <option value="1">PAK</option>
                     <option value="2">ASK</option>
                     <option value="3">PSDM</option>

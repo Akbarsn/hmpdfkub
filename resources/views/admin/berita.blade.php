@@ -39,17 +39,17 @@
                             <tr>
                                 <td>{{$new->id}}</td>
                                 <td><img src="/{{$new->image_path}}" class="img"></td>
-                                <td>{{$new->news_title}}</td>
+                                <td>{{$new->title}}</td>
                                 <td>
                                     <?php 
-                                    $temp = explode(" ",$new->news_content);
+                                    $temp = explode(" ",$new->content);
                                     $desc = "";
                                     if(count($temp)>10){
                                         for ($i=0; $i < 10; $i++) { 
                                             $desc .= $temp[$i] . " ";    
                                         }
                                     } else {
-                                        $desc = $new->news_content; 
+                                        $desc = $new->content; 
                                     }
                                     echo $desc . "..."
                                   ?>
@@ -91,18 +91,18 @@
                             @csrf
                             <div class="form-group">
                                 <label for="inputJudul">Judul</label>
-                                <input type="text" class="form-control" id="inputJudul" name="news_title">
+                                <input type="text" class="form-control" id="inputJudul" name="title" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="inputDeskripsi">Deskripsi</label>
-                                <textarea type="text" class="form-control" id="inputDeskripsi"
+                                <textarea type="text" class="form-control" id="inputDeskripsi" required
                                     name="news_content"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="inputFile">Upload File</label>
-                                <input type="file" id="inputFile" name="image">
+                                <input type="file" id="inputFile" name="image" required>
                             </div>
 
                         </div>

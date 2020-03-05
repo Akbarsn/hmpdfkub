@@ -22,17 +22,15 @@
             </div>
         </div>
         <div class="col-md-4 isi-col">
-            <div class="d-flex flex-wrap">
-                <div class="footer-head">
-                    Kontak Kami
-                </div>
-                <div class="footer-isi">
-                    Griya Mahasiswa Pendidikan Dokter<br>
-                    Gedung Pembelajaran Bersama<br>
-                    Jl. Veteran No. 8<br>
-                    Malang 65145<br>
-                    Indonesia
-                </div>
+            <div class="footer-head">
+                Kontak Kami
+            </div>
+            <div class="footer-isi">
+                Griya Mahasiswa Pendidikan Dokter<br>
+                Gedung Pembelajaran Bersama<br>
+                Jl. Veteran No. 8<br>
+                Malang 65145<br>
+                Indonesia
             </div>
         </div>
         <div class="col-md-4 isi-col">

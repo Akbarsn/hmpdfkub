@@ -11,17 +11,17 @@
             @csrf
             <div class="form-group">
                 <label for="inputNamaEvent">Nama Event</label>
-            <input type="text" class="form-control" id="inputNamaEvent" name="name" value="{{$event->name}}">
+            <input type="text" class="form-control" id="inputNamaEvent" name="name" value="{{$event->name}}" required>
             </div>
 
             <div class="form-group">
                 <label for="inputDeskripsi">Deskripsi</label>
-                <textarea type="text" class="form-control" id="inputDeskripsi" name="description"> {{$event->description}} </textarea>
+                <textarea type="text" class="form-control" id="inputDeskripsi" name="description" required> {{$event->description}} </textarea>
             </div>
 
             <div class="form-group">
                 <label for="inputTanggal">Tanggal Dilaksanakan</label>
-                <input type="date" class="form-control" id="inputTanggal" name="date" value="{{$event->date}}">
+                <input type="date" class="form-control" id="inputTanggal" name="date" value="{{$event->date}}" required> 
             </div>
 
             <input type="submit" class="btn btn-primary" value="Rubah">

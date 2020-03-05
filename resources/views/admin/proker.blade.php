@@ -70,7 +70,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addModal">Tambahkan Berita</h5>
+                        <h5 class="modal-title" id="addModal">Tambahkan Proker</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -80,19 +80,18 @@
                             @csrf
                             <div class="form-group">
                                 <label for="inputJudul">Judul</label>
-                                <input type="text" class="form-control" id="inputJudul" name="title">
+                                <input type="text" class="form-control" id="inputJudul" name="title" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="inputDeskripsi">Deskripsi</label>
-                                <textarea type="text" class="form-control" id="inputDeskripsi"
+                                <textarea type="text" class="form-control" id="inputDeskripsi" required
                                     name="description"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="inputJudul">Bidang</label>
-                                <select class="custom-select">
-                                    <option selected>Choose...</option>
+                                <select class="custom-select" name="bidang_id" required>
                                     <option value="1">PAK</option>
                                     <option value="2">ASK</option>
                                     <option value="3">PSDM</option>

@@ -35,22 +35,22 @@
                         <tbody>
 
                             @if (count($merch)>0)
-                                @foreach ($merch as $m)
-                                <tr>
-                                    <td>{{$m->id}}</td>
+                            @foreach ($merch as $m)
+                            <tr>
+                                <td>{{$m->id}}</td>
                                 <td><img src="{{$m->img_path}}" class="img" alt="{{$m->name}}"></td>
-                                    <td>{{$m->name}}</td>
-                                    <td>Rp. {{number_format($m->price,0,",",".")}}</td>
-                                    <td class="action-group">
+                                <td>{{$m->name}}</td>
+                                <td>Rp. {{number_format($m->price,0,",",".")}}</td>
+                                <td class="action-group">
                                     <a href="{{url("admin/merchandise/delete/")}}/{{$m->id}}" class="action delete"><i class="fas fa-times"></i></a>
-                                        <a href="{{url("admin/merchandise/edit/")}}/{{$m->id}}" class="action edit"><i class="far fa-edit"></i></a>
-                                    </td>
-                                </tr>
-                                @endforeach
+                                    <a href="{{url("admin/merchandise/edit/")}}/{{$m->id}}" class="action edit"><i class="far fa-edit"></i></a>
+                                </td>
+                            </tr>
+                            @endforeach
                             @else
-                                <tr>
-                                    <td colspan="5">Merchandise Not Found</td>
-                                </tr>
+                            <tr>
+                                <td colspan="5">Merchandise Not Found</td>
+                            </tr>
                             @endif
                         </tbody>
                     </table>
@@ -62,7 +62,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addModal">Tambahkan Berita</h5>
+                        <h5 class="modal-title" id="addModal">Tambahkan Merchandise</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -72,22 +72,22 @@
                             @csrf
                             <div class="form-group">
                                 <label for="inputJudul">Judul</label>
-                                <input type="text" class="form-control" id="inputJudul" name="name">
+                                <input type="text" class="form-control" id="inputJudul" name="name" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="inputDeskripsi">Deskripsi</label>
-                                <textarea type="text" class="form-control" id="inputDeskripsi" name="description"></textarea>
+                                <textarea type="text" class="form-control" id="inputDeskripsi" name="description" required></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label for="inputHarga">Harga</label>
-                                <input type="number" class="form-control" id="inputHarga" name="price">
+                                <input type="number" class="form-control" id="inputHarga" name="price" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="inputFile">Upload File</label>
-                                <input type="file" id="inputFile" name="image">
+                                <input type="file" id="inputFile" name="image" required>
                             </div>
 
                         </div>

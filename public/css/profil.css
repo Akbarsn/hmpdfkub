@@ -1,15 +1,20 @@
-body{
+body {
     overflow-x: hidden;
     background-color: var(--color-black);
 }
 
-#gambarLogo{
+#gambarLogo {
     margin: auto;
     background-color: black;
 }
 
-#gambarLogo{
-    margin: auto; 
+#gambarLogo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4vh;
+}
+
+#strukturLogo{
     display: flex;
     justify-content: center;
     margin-bottom: 4vh;
@@ -19,6 +24,12 @@ body{
     width: 20rem;
     height: auto;
     margin-top: 17vh;
+}
+
+@media (min-width: 0px) and (max-width: 767.98px) {
+    #gambarLogo{
+        display: none;
+    }
 }
 
 #header {
@@ -57,7 +68,7 @@ body{
 #textBoxVisi {
     background-color: var(--textBoxBgColor);
     text-align: justify;
-display: flex;
+    display: flex;
     margin-top: 4vh;
     margin-bottom: 4vh;
     width: 60vw;
@@ -107,25 +118,29 @@ display: flex;
 }
 
 @media (min-width: 0px) and (max-width: 767.98px) {
-    #apaItuHMPD, #textBoxVisi,#misiSemiHead , #textBoxMisi{
+    #apaItuHMPD,
+    #textBoxVisi,
+    #misiSemiHead,
+    #textBoxMisi {
         font-size: 12px;
         width: fit-content;
     }
-    #textBoxMisi{
+    #textBoxMisi {
         margin-bottom: 10px;
     }
-    #header, #headerVisiMisi{
+    #header,
+    #headerVisiMisi {
         font-size: 36px;
     }
- }
+}
 
- :root {
-    --textBoxBgColor: #F6C570;
+:root {
+    --textBoxBgColor: #f6c570;
     --main-bg-color: black;
-    --warnaHeader: #C15851;
+    --warnaHeader: #c15851;
     --main-padding: 2vh;
     --center: center;
     --paddingTB: 4vh 4vw;
- 
-    --borderTB:15px;
+
+    --borderTB: 15px;
 }

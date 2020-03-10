@@ -12,7 +12,10 @@ class HomeController extends Controller
 {
     public function GetHomeView()
     {
-        $event = Event::where('isDone', false)->orderBy('created_at', 'desc')->limit(6)->get();
+        date_default_timezone_set('Asia/Jakarta');
+
+        $date = date('Y-m-d H:i:s');
+        $event = Event::where('isDone', false)->orderBy('created_at', 'desc')->where('date', '>', $date)->limit(3)->get();
         $news = News::orderBy('created_at', 'desc')->limit(6)->get();
         $bidangKerja = BidangKerja::all();
         return view('page.home')

@@ -27,6 +27,8 @@
                     </div>
                     @endif
 
+                    {{$galeri->links()}}
+
                 </div>
             </div>
         </div>

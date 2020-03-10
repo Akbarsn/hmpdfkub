@@ -63,7 +63,7 @@ body {
 }
 
 #news-grid .card-title {
-    font-family: var(--font-subhead);
+    font-family: var(--font-paragraph);
     font-size: 32px;
     font-weight: 700;
 }

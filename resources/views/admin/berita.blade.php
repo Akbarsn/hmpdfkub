@@ -38,7 +38,7 @@
                             @foreach ($news as $new)
                             <tr>
                                 <td>{{$new->id}}</td>
-                                <td><img src="/{{$new->image_path}}" class="img"></td>
+                                <td><img src="{{url('/')}}/{{$new->image_path}}" class="img"></td>
                                 <td>{{$new->title}}</td>
                                 <td>
                                     <?php 

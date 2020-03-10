@@ -27,24 +27,6 @@ class GalleryController extends Controller
         return redirect(url("admin/galeri"))->with('success', 'Image added');
     }
 
-
-
-    // public function editPicture(Request $request)
-    // {
-    //     $id = $request->input('id');
-    //     $galeri = Gallery::find($id);
-    //     $image_title = $request->input('image_title');
-    //     $galeri->image_title = $request->input('image_title');
-    //     if($request->hasFile('image')){
-    //         $image = $request->file('image');
-    //         $image_name = $image_title . "." . time() . '.' . $image->getClientOriginalExtension();
-    //         // $path = $request->file('image')->storeAs('', $image_title);
-    //         $galeri->image_path = "" . $image_name;
-    //     }
-    //     $galeri->save();
-    //     return redirect(url("admin/galeri"));
-    // }
-
     public function deleteGallery($id)
     {
         $galeri = Gallery::find($id);

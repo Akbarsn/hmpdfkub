@@ -41,6 +41,7 @@ Route::get('/login', function () {
 
 Route::post('/login/send', 'AuthController@handleLogin');
 
+Route::get('/test', 'AuthController@getHashedPassword');
 
 Route::group(['middleware' => 'check'], function () {
     Route::get('/log-out', 'AuthController@logOut');
@@ -63,7 +64,7 @@ Route::group(['middleware' => 'check'], function () {
     //Galeri
     Route::get('/admin/galeri', 'GalleryController@viewAdmin');
 
-    Route::delete('/admin/galeri/delete/{id}', 'GalleryController@deleteGallery');
+    Route::get('/admin/galeri/delete/{id}', 'GalleryController@deleteGallery');
 
     Route::post('/admin/galeri/tambah', 'GalleryController@addPicture');
 
@@ -72,18 +73,18 @@ Route::group(['middleware' => 'check'], function () {
 
     Route::post('/admin/merchandise/tambah', 'MerchController@AddMerch');
 
-    Route::delete('/admin/merchandise/delete/{id}', 'MerchController@DeleteMerch');
+    Route::get('/admin/merchandise/delete/{id}', 'MerchController@DeleteMerch');
 
-    Route::get('/admin/merchandise/update/{id}', 'MerchController@');
+    Route::get('/admin/merchandise/update/{id}', 'MerchController@viewUpdate');
 
-    Route::post('/admin/merchandise/update/send/{id}', 'MerchController@');
+    Route::post('/admin/merchandise/update/send/{id}', 'MerchController@EditMerch');
 
     //Event
     Route::get('/admin/event', 'EventController@viewAdmin');
 
     Route::post('/admin/event/tambah', 'EventController@AddEvent');
 
-    Route::delete('/admin/event/delete/{id}', 'EventController@DeleteEvent');
+    Route::get('/admin/event/delete/{id}', 'EventController@DeleteEvent');
 
     Route::get('/admin/event/update/{id}', 'EventController@viewUpdate');
 
@@ -100,5 +101,5 @@ Route::group(['middleware' => 'check'], function () {
 
     Route::post('/admin/proker/update/send/{id}', 'ProkerController@EditProker');
 
-    Route::delete('/admin/proker/delete/{id}', 'ProkerController@DeleteProker');
+    Route::get('/admin/proker/delete/{id}', 'ProkerController@DeleteProker');
 });

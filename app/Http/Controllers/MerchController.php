@@ -9,7 +9,7 @@ class MerchController extends Controller
 {
     public function viewAll()
     {
-        $merch = Merchandises::orderBy('created_at', 'desc')->get();
+        $merch = Merchandises::orderBy('created_at', 'desc')->paginate(12);
         return view('page.merchandise')->with('merch', $merch);
     }
 
@@ -41,9 +41,9 @@ class MerchController extends Controller
         $image = $request->file('image');
         $image_title = $name . "_" . date('Y-m-d') . '.' . $image->getClientOriginalExtension();
         $image->move("upload/merch/", $image_title);
-        $merch->image_path = "upload/merch/" . $image_title;
+        $merch->img_path = "upload/merch/" . $image_title;
         $merch->save();
-        return redirect(url('/admin/merch'))->with('success', 'Merch added');
+        return redirect(url('/admin/merchandise'))->with('success', 'Merch added');
     }
 
     public function EditMerch(Request $request, $id)
@@ -59,16 +59,16 @@ class MerchController extends Controller
             $image = $request->file('image');
             $image_title = $name . "_" . date('Y-m-d') . '.' . $image->getClientOriginalExtension();
             $image->move("upload/merch/", $image_title);
-            $merch->image_path = "upload/merch/" . $image_title;
+            $merch->img_path = "upload/merch/" . $image_title;
         }
         $merch->save();
-        return redirect(url('/admin/merch'))->with('success', 'Merch edited');
+        return redirect(url('/admin/merchandise'))->with('success', 'Merch edited');
     }
 
     public function DeleteMerch($id)
     {
         $merch = Merchandises::find($id);
         $merch->delete();
-        return redirect(url('/admin/merch'))->with('success', 'Merch deleted');
+        return redirect(url('/admin/merchandise'))->with('success', 'Merch deleted');
     }
 }

@@ -27,6 +27,7 @@
                                 <th scope="col">ID</th>
                                 <th scope="col">Gambar</th>
                                 <th scope="col">Judul</th>
+                                <th scope="col">Deskripsi</th>
                                 <th scope="col">Harga</th>
                                 <th scope="col"></th>
                             </tr>
@@ -40,10 +41,24 @@
                                 <td>{{$m->id}}</td>
                                 <td><img src="{{$m->img_path}}" class="img" alt="{{$m->name}}"></td>
                                 <td>{{$m->name}}</td>
+                                <td>
+                                <?php
+                                    $temp = explode(" ", $m->description);
+                                    $desc = "";
+                                    if (count($temp) > 10) {
+                                        for ($i = 0; $i < 10; $i++) {
+                                            $desc .= $temp[$i] . " ";
+                                        }
+                                    } else {
+                                        $desc = $new->content;
+                                    }
+                                    echo $desc . "..."
+                                ?>
+                                </td>
                                 <td>Rp. {{number_format($m->price,0,",",".")}}</td>
                                 <td class="action-group">
                                     <a href="{{url("admin/merchandise/delete/")}}/{{$m->id}}" class="action delete"><i class="fas fa-times"></i></a>
-                                    <a href="{{url("admin/merchandise/edit/")}}/{{$m->id}}" class="action edit"><i class="far fa-edit"></i></a>
+                                    <a href="{{url("admin/merchandise/update/")}}/{{$m->id}}" class="action edit"><i class="far fa-edit"></i></a>
                                 </td>
                             </tr>
                             @endforeach

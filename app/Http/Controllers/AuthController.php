@@ -19,10 +19,10 @@ class AuthController extends Controller
                 $request->session()->put('name', $user[0]->name);
                 return redirect(url("dashboard"));
             } else {
-                redirect()->back();
+                redirect(url('/login'));
             }
         } else {
-            redirect()->back();
+            redirect(url('/login'));
         }
     }
 

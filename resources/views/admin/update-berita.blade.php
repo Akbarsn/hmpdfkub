@@ -11,13 +11,12 @@
             @csrf
             <div class="form-group">
                 <label for="inputJudul">Judul</label>
-                <input type="text" class="form-control" id="inputJudul" name="news_title" value="{{$news->news_title}}">
+                <input type="text" class="form-control" id="inputJudul" name="title" value="{{$news->title}}">
             </div>
 
             <div class="form-group">
                 <label for="inputDeskripsi">Deskripsi</label>
-                <textarea type="text" class="form-control" id="inputDeskripsi"
-                    name="news_content">{{$news->news_content}}</textarea>
+                <textarea type="text" class="form-control" id="inputDeskripsi" name="content">{{$news->content}}</textarea>
             </div>
 
             <div class="form-group">

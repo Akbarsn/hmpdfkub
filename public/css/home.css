@@ -19,16 +19,16 @@ section {
     text-align: justify;
 }
 
-#cardCarouselMini{
+#cardCarouselMini {
     display: none;
 }
 
 @media (min-width: 0px) and (max-width: 767.98px) {
-    #cardCarousel{
+    #cardCarousel {
         display: none;
     }
 
-    #cardCarouselMini{
+    #cardCarouselMini {
         display: block;
     }
 
@@ -38,39 +38,52 @@ section {
     }
 
     #about-us-left {
-        margin-top: 0px!important;
+        margin-top: 0px !important;
     }
 
-    #upcoming_event .card{
+    #upcoming_event .card {
         margin-top: 10px;
         margin-bottom: 10px;
     }
-    
-    .paragraph{
+
+    .paragraph {
         font-size: var(--font-paragraph-mini-size);
     }
-    
-    .header{
+
+    .header {
         font-size: var(--font-header-mini-size);
     }
 }
 
 /* Jumbotron */
 #jumbotron {
-    margin-top: 8vh;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    width: 100%;
+    margin: 1.5625rem 0 0 0;
+}
+
+@media only screen and (max-width: 37.5em) {
+    #jumbotron {
+        margin: 3.5rem 0 0 0;
+    }
+}
+
+/* margin-top: 8vh;
     min-height: 92vh;
     height: 100%;
     background-image: url("../image/home.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
-}
+    position: relative;*/
+
 
 /* About Us */
 #about_us .content {
-    margin-top: 15vh;
-    margin-bottom: 20vh;
+    margin-top: 10rem;
+    margin-bottom: 15rem;
     width: 70vw;
     margin-left: auto;
     margin-right: auto;
@@ -83,19 +96,19 @@ section {
 
 /* What New */
 #what_new {
-    margin-top: 10vh;
+    margin-top: 5rem;
 }
 
 #what_new #head {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
     display: flex;
     justify-content: center;
 }
 
 #what_new #button {
-    margin-top: 5vh;
-    margin-bottom: 20vh;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
     display: flex;
     justify-content: center;
 }
@@ -106,43 +119,51 @@ section {
 
 /* Upcoming Event */
 #upcoming_event {
-    margin-top: 10vh;
-    margin-bottom: 25vh;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
 }
 
 #upcoming_event #head {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
     display: flex;
     justify-content: center;
 }
 
-#upcoming_event .card{
+#upcoming_event .card {
+    color: black;
+    font-family: var(--font-paragraph);
     width: 20rem;
 }
+
+#upcoming_event .card-title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
 /* Bidang Kerja */
 #bidang_kerja {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
 }
 
 #bidang_kerja #head {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
     display: flex;
     justify-content: center;
 }
 
-#bidang_kerja .col-md-4{
+#bidang_kerja .col-md-4 {
     display: flex;
     justify-content: center;
 }
 
-#bidang_kerja .card{
+#bidang_kerja .card {
     color: black;
     width: 18rem;
 }
 
-#bidang_kerja .card-body{
+#bidang_kerja .card-body {
     min-height: 15rem;
 }

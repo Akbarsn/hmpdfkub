@@ -3,14 +3,17 @@ body {
 }
 
 #jumbotron {
-    margin-top: 8vh;
-    min-height: 92vh;
-    height: 100%;
-    background-image: url("../image/merch.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    width: 100%;
+    margin: 1.5625rem 0 0 0;
+}
+
+@media only screen and (max-width: 37.5em) {
+    #jumbotron {
+        margin: 3.5rem 0 0 0;
+    }
 }
 
 #isi-merch {
@@ -20,6 +23,8 @@ body {
 }
 
 #isi-merch .card {
+    width: 22rem;
+    height: 18rem;
     border: none;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -30,10 +35,13 @@ body {
 }
 
 .img {
+    width: 22rem;
+    height: 18rem;
+    object-fit: cover;
     opacity: 1;
     display: block;
-    width: 100%;
-    height: auto;
+    /*width: 100%;*/
+    /*height: auto;*/
     transition: .5s ease;
     backface-visibility: hidden;
 }

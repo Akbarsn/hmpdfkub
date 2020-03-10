@@ -39,20 +39,22 @@
                                 <td>{{$p->id}}</td>
                                 <td>{{$p->title}}</td>
                                 <td>
-                                    <?php 
-                                    $temp = explode(" ",$p->description);
+                                    <?php
+                                    $temp = explode(" ", $p->description);
                                     $desc = "";
-                                    for ($i=0; $i < 10; $i++) { 
-                                    $desc .= $temp[$i] . " ";    
+                                    if (count($temp) > 10) {
+                                        for ($i = 0; $i < 10; $i++) {
+                                            $desc .= $temp[$i] . " ";
+                                        }
+                                    } else {
+                                        $desc = $p->description;
                                     }
                                     echo $desc . "..."
-                                  ?>
+                                    ?>
                                 </td>
                                 <td class="action-group">
-                                    <a href="{{url("admin/proker/delete/")}}/{{$p->id}}" class="action delete"><i
-                                            class="fas fa-times"></i></a>
-                                    <a href="{{url("admin/proker/update/")}}/{{$p->id}}" class="action edit"><i
-                                            class="far fa-edit"></i></a>
+                                    <a href="{{url("admin/proker/delete/")}}/{{$p->id}}" class="action delete"><i class="fas fa-times"></i></a>
+                                    <a href="{{url("admin/proker/update/")}}/{{$p->id}}" class="action edit"><i class="far fa-edit"></i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -85,8 +87,7 @@
 
                             <div class="form-group">
                                 <label for="inputDeskripsi">Deskripsi</label>
-                                <textarea type="text" class="form-control" id="inputDeskripsi" required
-                                    name="description"></textarea>
+                                <textarea type="text" class="form-control" id="inputDeskripsi" required name="description"></textarea>
                             </div>
 
                             <div class="form-group">
@@ -98,7 +99,7 @@
                                     <option value="4">TIK</option>
                                     <option value="5">PENGMAS</option>
                                     <option value="6">KDR</option>
-                                  </select>
+                                </select>
                             </div>
 
                         </div>

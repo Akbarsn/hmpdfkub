@@ -37,8 +37,8 @@
                             @foreach ($galeri as $g)
                             <tr>
                                 <td>{{$g->id}}</td>
-                                <td><img src="{{$g->image_path}}" class="img" alt="{{$g->image_title}}"></td>
-                                <td>{{$g->image_title}}</td>
+                                <td><img src="{{url('/')}}/{{$g->img_path}}" class="img" alt="{{$g->title}}"></td>
+                                <td>{{$g->title}}</td>
                                 <td>
                                     <a href="{{url("admin/galeri/delete/")}}/{{$g->id}}" class="action delete"><i
                                             class="fas fa-times"></i></a>

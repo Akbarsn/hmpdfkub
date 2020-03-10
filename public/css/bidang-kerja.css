@@ -217,6 +217,7 @@ URUTAN Menambah media query: base + typography -> layout & grid -> page layout -
 }
 
 .bidang-kerja__proker-container {
+    min-height: 40rem;
     font-family: var(--font-paragraph);
     color: var(--color-black);
     background-color: var(--color-yellow);
@@ -226,12 +227,13 @@ URUTAN Menambah media query: base + typography -> layout & grid -> page layout -
 
 @media only screen and (max-width: 37.5em) {
     .bidang-kerja__proker-container {
+        min-height: 20rem;
         padding: 1rem 1.5rem;
     }
 }
 
 .bidang-kerja__proker-title {
-    font-family: var(--font-subhead);
+    font-family: var(--font-paragraph);
     font-size: var(--font-subhead-size);
     margin: 0 0 2rem 0;
 }
@@ -252,5 +254,29 @@ URUTAN Menambah media query: base + typography -> layout & grid -> page layout -
 @media only screen and (max-width: 37.5em) {
     .bidang-kerja__proker-desc {
         font-size: 1rem;
+    }
+}
+
+#big{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#mini{
+    display: none;
+}
+
+@media only screen and (max-width: 37.5em) {
+    #big{
+        display: none!important;
+    }
+
+    #mini{
+        display: block;
+    }
+
+    #mini .col{
+        margin-bottom: 40px;
     }
 }

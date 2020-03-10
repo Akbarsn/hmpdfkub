@@ -27,5 +27,8 @@
         </form>
     </div>
 </section>
-
+<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('content');
+</script>
 @endsection

@@ -27,6 +27,7 @@
                                 <th scope="col">ID</th>
                                 <th scope="col">Judul</th>
                                 <th scope="col">Deskripsi</th>
+                                <th scope="col">Bidang ke </th>
                                 <th scope="col" class="center">Aksi</th>
                             </tr>
                         </thead>
@@ -34,9 +35,10 @@
                         <tbody>
 
                             @if (count($proker)>0)
+                            <?php $itemCount = 1;?>
                             @foreach ($proker as $p)
                             <tr>
-                                <td>{{$p->id}}</td>
+                                <td>{{$itemCount++}}</td>
                                 <td>{{$p->title}}</td>
                                 <td>
                                     <?php
@@ -52,6 +54,7 @@
                                     echo $desc . "..."
                                     ?>
                                 </td>
+                                <td>{{$p->bidang_id}}</td>
                                 <td class="action-group">
                                     <a href="{{url("admin/proker/delete/")}}/{{$p->id}}" class="action delete"><i class="fas fa-times"></i></a>
                                     <a href="{{url("admin/proker/update/")}}/{{$p->id}}" class="action edit"><i class="far fa-edit"></i></a>
@@ -114,5 +117,10 @@
         </div>
 
     </section>
+
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('description');
+    </script>
 </main>
 @endsection

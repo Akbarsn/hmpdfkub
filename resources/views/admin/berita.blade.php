@@ -35,30 +35,29 @@
                         <tbody>
 
                             @if (count($news)>0)
+                            <?php $itemCount = 1;?>
                             @foreach ($news as $new)
                             <tr>
-                                <td>{{$new->id}}</td>
+                                <td>{{$itemCount++}}</td>
                                 <td><img src="{{url('/')}}/{{$new->image_path}}" class="img"></td>
                                 <td>{{$new->title}}</td>
                                 <td>
-                                    <?php 
-                                    $temp = explode(" ",$new->content);
+                                    <?php
+                                    $temp = explode(" ", $new->content);
                                     $desc = "";
-                                    if(count($temp)>10){
-                                        for ($i=0; $i < 10; $i++) { 
-                                            $desc .= $temp[$i] . " ";    
+                                    if (count($temp) > 10) {
+                                        for ($i = 0; $i < 10; $i++) {
+                                            $desc .= $temp[$i] . " ";
                                         }
                                     } else {
-                                        $desc = $new->content; 
+                                        $desc = $new->content;
                                     }
                                     echo $desc . "..."
-                                  ?>
+                                    ?>
                                 </td>
                                 <td class="action-group">
-                                    <a href="{{url("admin/berita/delete/")}}/{{$new->id}}" class="action delete"><i
-                                            class="fas fa-times"></i></a>
-                                    <a href="{{url("admin/berita/update/")}}/{{$new->id}}" class="action edit"><i
-                                            class="far fa-edit"></i></a>
+                                    <a href="{{url("admin/berita/delete/")}}/{{$new->id}}" class="action delete"><i class="fas fa-times"></i></a>
+                                    <a href="{{url("admin/berita/update/")}}/{{$new->id}}" class="action edit"><i class="far fa-edit"></i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -96,8 +95,7 @@
 
                             <div class="form-group">
                                 <label for="inputDeskripsi">Deskripsi</label>
-                                <textarea type="text" class="form-control" id="inputDeskripsi" required
-                                    name="news_content"></textarea>
+                                <textarea type="text" class="form-control" id="inputDeskripsi" required name="content"></textarea>
                             </div>
 
                             <div class="form-group">
@@ -117,5 +115,9 @@
         </div>
 
     </section>
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('content');
+    </script>
 </main>
 @endsection

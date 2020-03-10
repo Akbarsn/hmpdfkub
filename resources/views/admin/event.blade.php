@@ -35,9 +35,10 @@
                         <tbody>
 
                             @if (count($event)>0)
+                            <?php $itemCount = 1;?>
                             @foreach ($event as $e)
                             <tr>
-                                <td>{{$e->id}}</td>
+                                <td>{{$itemCount++}}</td>
                                 <td>{{$e->name}}</td>
                                 <td>
                                     <?php
@@ -48,6 +49,7 @@
                                             $desc .= $temp[$i] . " ";
                                         }
                                     } else {
+                                        $desc = $e->description;
                                     }
                                     echo $desc . "..."
                                     ?>
@@ -110,5 +112,10 @@
         </div>
 
     </section>
+
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('description');
+    </script>
 </main>
 @endsection

@@ -11,7 +11,7 @@
             @csrf
             <div class="form-group">
                 <label for="inputNamaEvent">Nama Event</label>
-            <input type="text" class="form-control" id="inputNamaEvent" name="name" value="{{$event->name}}" required>
+                <input type="text" class="form-control" id="inputNamaEvent" name="name" value="{{$event->name}}" required>
             </div>
 
             <div class="form-group">
@@ -21,12 +21,15 @@
 
             <div class="form-group">
                 <label for="inputTanggal">Tanggal Dilaksanakan</label>
-                <input type="date" class="form-control" id="inputTanggal" name="date" value="{{$event->date}}" required> 
+                <input type="date" class="form-control" id="inputTanggal" name="date" value="{{$event->date}}" required>
             </div>
 
             <input type="submit" class="btn btn-primary" value="Rubah">
         </form>
     </div>
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('description');
+    </script>
 </section>
-
 @endsection

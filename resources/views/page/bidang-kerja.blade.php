@@ -88,7 +88,7 @@
                     <div class="d-block w-100 bidang-kerja__proker-container">
                         <div class="isi-carousel">
                             <h3 class="bidang-kerja__proker-title">{{$proker[0]->title}}</h3>
-                            <p class="bidang-kerja__proker-desc">{{$proker[0]->description}}</p>
+                            <p class="bidang-kerja__proker-desc">{!!$proker[0]->description!!}</p>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                     <div class="d-block w-100 bidang-kerja__proker-container">
                         <div class="isi-carousel">
                             <h3 class="bidang-kerja__proker-title">{{$proker[$i]->title}}</h3>
-                            <p class="bidang-kerja__proker-desc">{{$proker[$i]->description}}</p>
+                            <p class="bidang-kerja__proker-desc">{!!$proker[$i]->description!!}</p>
                         </div>
                     </div>
             </div>

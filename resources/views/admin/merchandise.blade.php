@@ -36,13 +36,14 @@
                         <tbody>
 
                             @if (count($merch)>0)
+                            <?php $itemCount = 1; ?>
                             @foreach ($merch as $m)
                             <tr>
-                                <td>{{$m->id}}</td>
-                                <td><img src="{{$m->img_path}}" class="img" alt="{{$m->name}}"></td>
+                                <td>{{$itemCount++}}</td>
+                                <td><img src="{{url('/')}}/{{$m->img_path}}" class="img" alt="{{$m->name}}"></td>
                                 <td>{{$m->name}}</td>
                                 <td>
-                                <?php
+                                    <?php
                                     $temp = explode(" ", $m->description);
                                     $desc = "";
                                     if (count($temp) > 10) {
@@ -50,10 +51,10 @@
                                             $desc .= $temp[$i] . " ";
                                         }
                                     } else {
-                                        $desc = $new->content;
+                                        $desc = $m->description;
                                     }
                                     echo $desc . "..."
-                                ?>
+                                    ?>
                                 </td>
                                 <td>Rp. {{number_format($m->price,0,",",".")}}</td>
                                 <td class="action-group">
@@ -64,7 +65,7 @@
                             @endforeach
                             @else
                             <tr>
-                                <td colspan="5">Merchandise Not Found</td>
+                                <td colspan="6">Merchandise Not Found</td>
                             </tr>
                             @endif
                         </tbody>
@@ -117,5 +118,10 @@
         </div>
 
     </section>
+
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('description');
+    </script>
 </main>
 @endsection
